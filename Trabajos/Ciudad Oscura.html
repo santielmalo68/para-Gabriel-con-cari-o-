@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ciudad Oscura </title>
+    <style>
+      html, body { margin: 0; padding: 0; overflow: hidden; }
+        #info {
+                position: absolute;
+                padding: 10px;
+                width: 100%;
+                text-align: center;
+                color: #FFFFFF;
+            }
+    </style>
+  </head>
+  <body>
+      <div id="info">
+        
+            Santiago Mahecha <br/>
+                        
+        </div>
+		<script src="js/three.js"></script>
+        <script src="js/controls/OrbitControls.js"></script>
+        <script src="js/csg.js"></script>
+	<script src="js/THREE.CSG.js"></script>
+    <script>
+            
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+            var controls;
+           
+
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+			document.body.appendChild( renderer.domElement );
+            controls = new THREE.OrbitControls( camera, renderer.domElement );
+			camera.position.y = 30;
+
+            Edificio= new THREE.Geometry();
+	       var resCub=10;
+            var matRec = new THREE.PointsMaterial( { color: 'white', size: 0.1 } );	
+            for( var i = 0; i < resCub; i++){
+            for( var j = 0; j < resCub; j++){
+				for( var k = 0; k < resCub; k++){
+                   var punto1 = new THREE.Vector3();
+                   punto1.x =  (i/5);
+                   punto1.y = (j/3);
+                   punto1.z = k/5;
+                    Edificio.vertices.push( punto1 );
+                    
+					}
+				}
+			}
+        base = new THREE.Points(Edificio, matRec);
+		base25 = new THREE.Points(Edificio, matRec);
+		base26 = new THREE.Points(Edificio, matRec);
+		base27 = new THREE.Points(Edificio, matRec);
+		base28 = new THREE.Points(Edificio, matRec);
+		base29 = new THREE.Points(Edificio, matRec);
+		base30 = new THREE.Points(Edificio, matRec);
+		base31 = new THREE.Points(Edificio, matRec);
+		base32 = new THREE.Points(Edificio, matRec);
+        
+            Edificio1= new THREE.Geometry();
+	       var resCub=10;
+            var matRec1 = new THREE.PointsMaterial( { color: 'white', size: 0.1 } );	
+            for( var i = 0; i < resCub; i++){
+            for( var j = 0; j < resCub; j++){
+				for( var k = 0; k < resCub; k++){
+                   var punto1 = new THREE.Vector3();
+                   punto1.x =  (i/5);
+                   punto1.y = (j/2);
+                   punto1.z = k/3;
+                    Edificio1.vertices.push( punto1 );
+                    
+					}
+				}
+			}
+         base1 = new THREE.Points(Edificio1, matRec1);
+        base16 = new THREE.Points(Edificio1, matRec1);
+        base17 = new THREE.Points(Edificio1, matRec1);
+        base18 = new THREE.Points(Edificio1, matRec1);
+        base19 = new THREE.Points(Edificio1, matRec1);
+        base20 = new THREE.Points(Edificio1, matRec1);
+        base21 = new THREE.Points(Edificio1, matRec1);
+        base22 = new THREE.Points(Edificio1, matRec1);
+        base23 = new THREE.Points(Edificio1, matRec1);
+        base24 = new THREE.Points(Edificio1, matRec1);
+        
+        Edificio2= new THREE.Geometry();
+	       var resCub=10;
+            var matRec2 = new THREE.PointsMaterial( { color: 'white', size: 0.1 } );	
+            for( var i = 0; i < resCub; i++){
+            for( var j = 0; j < resCub; j++){
+				for( var k = 0; k < resCub; k++){
+                   var punto1 = new THREE.Vector3();
+                   punto1.x =  (i/3);
+                   punto1.y = (j/2);
+                   punto1.z = k/2;
+                    Edificio2.vertices.push( punto1 );
+                    
+					}
+				}
+			}
+            base2 = new THREE.Points(Edificio2, matRec2);
+			base33 = new THREE.Points(Edificio2, matRec2);
+			base34 = new THREE.Points(Edificio2, matRec2);
+			base35 = new THREE.Points(Edificio2, matRec2);
+			base36 = new THREE.Points(Edificio2, matRec2);
+			base37 = new THREE.Points(Edificio2, matRec2);
+			base38 = new THREE.Points(Edificio2, matRec2);
+			base39 = new THREE.Points(Edificio2, matRec2);
+			base40 = new THREE.Points(Edificio2, matRec2);
+        
+        Edificio3= new THREE.Geometry();
+	       var resCub=10;
+            var matRec3 = new THREE.PointsMaterial( { color: 'white', size: 0.1 } );	
+            for( var i = 0; i < resCub; i++){
+            for( var j = 0; j < resCub; j++){
+				for( var k = 0; k < resCub; k++){
+                   var punto1 = new THREE.Vector3();
+                   punto1.x =  (i/5);
+                   punto1.y = (j/1);
+                   punto1.z = k/5;
+                    Edificio3.vertices.push( punto1 );
+                    
+					}
+				}
+			}
+            base3 = new THREE.Points(Edificio3, matRec3);
+			base41 = new THREE.Points(Edificio3, matRec3);
+			base42 = new THREE.Points(Edificio3, matRec3);
+			base43 = new THREE.Points(Edificio3, matRec3);
+			base44 = new THREE.Points(Edificio3, matRec3);
+			base45 = new THREE.Points(Edificio3, matRec3);
+			base46 = new THREE.Points(Edificio3, matRec3);
+			base47 = new THREE.Points(Edificio3, matRec3);
+			base48 = new THREE.Points(Edificio3, matRec3);
+        
+        Edificio4= new THREE.Geometry();
+	       var resCub=10;
+            var matRec4 = new THREE.PointsMaterial( { color: 'white', size: 0.1 } );	
+            for( var i = 0; i < resCub; i++){
+            for( var j = 0; j < resCub; j++){
+				for( var k = 0; k < resCub; k++){
+                   var punto1 = new THREE.Vector3();
+                   punto1.x =  (i/2);
+                   punto1.y = (j/1.5);
+                   punto1.z = k/2;
+                    Edificio4.vertices.push( punto1 );
+                    
+					}
+				}
+			}
+            base4 = new THREE.Points(Edificio4, matRec4);
+			base49 = new THREE.Points(Edificio4, matRec4);
+			base50 = new THREE.Points(Edificio4, matRec4);
+			base51 = new THREE.Points(Edificio4, matRec4);
+			base52 = new THREE.Points(Edificio4, matRec4);
+			base53 = new THREE.Points(Edificio4, matRec4);
+			base54 = new THREE.Points(Edificio4, matRec4);
+			base55 = new THREE.Points(Edificio4, matRec4);
+			base56 = new THREE.Points(Edificio4, matRec4);
+        
+        Edificio5= new THREE.Geometry();
+	       var resCub=10;
+            var matRec5 = new THREE.PointsMaterial( { color: 'white', size: 0.1 } );	
+            for( var i = 0; i < resCub; i++){
+            for( var j = 0; j < resCub; j++){
+				for( var k = 0; k < resCub; k++){
+                   var punto1 = new THREE.Vector3();
+                   punto1.x =  (i/5);
+                   punto1.y = (j/0.5);
+                   punto1.z = k/5;
+                    Edificio5.vertices.push( punto1 );
+                    
+					}
+				}
+			}
+            base5 = new THREE.Points(Edificio5, matRec5);
+			base57 = new THREE.Points(Edificio5, matRec5);
+			base58 = new THREE.Points(Edificio5, matRec5);
+			base59 = new THREE.Points(Edificio5, matRec5);
+			base60 = new THREE.Points(Edificio5, matRec5);
+			base61 = new THREE.Points(Edificio5, matRec5);
+			base62 = new THREE.Points(Edificio5, matRec5);
+			base63 = new THREE.Points(Edificio5, matRec5);
+			base64 = new THREE.Points(Edificio5, matRec5);
+			
+        Edificio6= new THREE.Geometry();
+	       var resCub=10;
+            var matRec6 = new THREE.PointsMaterial( { color: 'white', size: 0.1 } );	
+            for( var i = 0; i < resCub; i++){
+            for( var j = 0; j < resCub; j++){
+				for( var k = 0; k < resCub; k++){
+                   var punto1 = new THREE.Vector3();
+                   punto1.x =  (i/1);
+                   punto1.y = (j/0.7);
+                   punto1.z = k/1;
+                    Edificio6.vertices.push( punto1 );
+                    
+					}
+				}
+			}
+            base6 = new THREE.Points(Edificio6, matRec6);
+			base65 = new THREE.Points(Edificio6, matRec6);
+			base66 = new THREE.Points(Edificio6, matRec6);
+			base67 = new THREE.Points(Edificio6, matRec6);
+			base68 = new THREE.Points(Edificio6, matRec6);
+			base69 = new THREE.Points(Edificio6, matRec6);
+			base70 = new THREE.Points(Edificio6, matRec6);
+			base71 = new THREE.Points(Edificio6, matRec6);
+			base72 = new THREE.Points(Edificio6, matRec6);
+        
+        Edificio7= new THREE.Geometry();
+	       var resCub=10;
+            var matRec7 = new THREE.PointsMaterial( { color: 'white', size: 0.1 } );	
+            for( var i = 0; i < resCub; i++){
+            for( var j = 0; j < resCub; j++){
+				for( var k = 0; k < resCub; k++){
+                   var punto1 = new THREE.Vector3();
+                   punto1.x =  (i/2);
+                   punto1.y = (j/1.2);
+                   punto1.z = k/2;
+                    Edificio7.vertices.push( punto1 );
+                    
+					}
+				}
+			}
+            base7 = new THREE.Points(Edificio7, matRec7);
+            
+        
+        Edificio8= new THREE.Geometry();
+	       var resCub=10;
+            var matRec8 = new THREE.PointsMaterial( { color: 'white', size: 0.1 } );	
+            for( var i = 0; i < resCub; i++){
+            for( var j = 0; j < resCub; j++){
+				for( var k = 0; k < resCub; k++){
+                   var punto1 = new THREE.Vector3();
+                   punto1.x =  (i/3);
+                   punto1.y = (j/1.5);
+                   punto1.z = k/3;
+                    Edificio8.vertices.push( punto1 );
+                    
+					}
+				}
+			}
+            base8 = new THREE.Points(Edificio8, matRec8);
+        
+        
+        Edificio9= new THREE.Geometry();
+	       var resCub=10;
+            var matRec9 = new THREE.PointsMaterial( { color: 'white', size: 0.1 } );	
+            for( var i = 0; i < resCub; i++){
+            for( var j = 0; j < resCub; j++){
+				for( var k = 0; k < resCub; k++){
+                   var punto1 = new THREE.Vector3();
+                   punto1.x =  (i/2);
+                   punto1.y = (j/1);
+                   punto1.z = k/2;
+                    Edificio9.vertices.push( punto1 );
+                    
+					}
+				}
+			}
+            base9 = new THREE.Points(Edificio9, matRec9);
+        
+        Edificio10= new THREE.Geometry();
+	       var resCub=10;
+            var matRec10 = new THREE.PointsMaterial( { color: 'white', size: 0.1 } );	
+            for( var i = 0; i < resCub; i++){
+            for( var j = 0; j < resCub; j++){
+				for( var k = 0; k < resCub; k++){
+                   var punto1 = new THREE.Vector3();
+                   punto1.x =  (i/1);
+                   punto1.y = (j/0.5);
+                   punto1.z = k/1;
+                    Edificio10.vertices.push( punto1 );
+                    
+					}
+				}
+			}
+            base10 = new THREE.Points(Edificio10, matRec10);
+        
+        Edificio11= new THREE.Geometry();
+	       var resCub=10;
+            var matRec11 = new THREE.PointsMaterial( { color: 'white', size: 0.1 } );	
+            for( var i = 0; i < resCub; i++){
+            for( var j = 0; j < resCub; j++){
+				for( var k = 0; k < resCub; k++){
+                   var punto1 = new THREE.Vector3();
+                   punto1.x =  (i/2);
+                   punto1.y = (j/0.5);
+                   punto1.z = k/2;
+                    Edificio11.vertices.push( punto1 );
+                    
+					}
+				}
+			}
+            base11 = new THREE.Points(Edificio11, matRec11);
+        
+        Edificio12= new THREE.Geometry();
+	       var resCub=10;
+            var matRec12 = new THREE.PointsMaterial( { color: 'white', size: 0.1 } );	
+            for( var i = 0; i < resCub; i++){
+            for( var j = 0; j < resCub; j++){
+				for( var k = 0; k < resCub; k++){
+                   var punto1 = new THREE.Vector3();
+                   punto1.x =  (i/5);
+                   punto1.y = (j/0.8);
+                   punto1.z = k/5;
+                    Edificio12.vertices.push( punto1 );
+                    
+					}
+				}
+			}
+            base12 = new THREE.Points(Edificio12, matRec12);
+        
+         Edificio13= new THREE.Geometry();
+	       var resCub=10;
+            var matRec13 = new THREE.PointsMaterial( { color: 'white', size: 0.1 } );	
+            for( var i = 0; i < resCub; i++){
+            for( var j = 0; j < resCub; j++){
+				for( var k = 0; k < resCub; k++){
+                   var punto1 = new THREE.Vector3();
+                   punto1.x =  (i/1);
+                   punto1.y = (j/0.4);
+                   punto1.z = k/1;
+                    Edificio13.vertices.push( punto1 );
+                    
+					}
+				}
+			}
+            base13 = new THREE.Points(Edificio13, matRec13);
+        
+        Edificio14= new THREE.Geometry();
+	       var resCub=10;
+            var matRec14 = new THREE.PointsMaterial( { color: 'white', size: 0.1 } );	
+            for( var i = 0; i < resCub; i++){
+            for( var j = 0; j < resCub; j++){
+				for( var k = 0; k < resCub; k++){
+                   var punto1 = new THREE.Vector3();
+                   punto1.x =  (i/2);
+                   punto1.y = (j/0.4);
+                   punto1.z = k/2;
+                    Edificio14.vertices.push( punto1 );
+                    
+					}
+				}
+			}
+            base14 = new THREE.Points(Edificio14, matRec14);
+        
+         Edificio15= new THREE.Geometry();
+	       var resCub=10;
+            var matRec15 = new THREE.PointsMaterial( { color: 'white', size: 0.1 } );	
+            for( var i = 0; i < resCub; i++){
+            for( var j = 0; j < resCub; j++){
+				for( var k = 0; k < resCub; k++){
+                   var punto1 = new THREE.Vector3();
+                   punto1.x =  (i/4);
+                   punto1.y = (j/0.3);
+                   punto1.z = k/4;
+                    Edificio15.vertices.push( punto1 );
+                    
+					}
+				}
+			}
+            base15 = new THREE.Points(Edificio15, matRec15);
+        
+        scene.add(base, base1, base2, base3, base4, base5, base6, base7, base8, base9, base10, base11, base12, base13, base14, base15, base16, base17, base18, base19, base20, base21, base22, base23,base24, base25, base26, base27, base28, base29,
+		base30,base31,base32,base33,base34,base35,base36,base37,base38,base39,base40,base41,base42,base43,base44,base45,base46,base47,base48,base49,base50,base51,base52,base53,base54,base55,base56,base57,base58,base59,base60,base61,base62,base63,
+		base64,base65,base66,base67,base68,base69,base70,base71,base72);
+        
+        
+         base16.translateZ(-2);
+        base16.translateX(-2);
+        
+        base17.translateZ(11);
+        base17.translateX(-8);
+        
+        base18.translateZ(4);
+        base18.translateX(-3);
+        
+        base19.translateZ(8);
+        base19.translateX(3);
+        
+        base20.translateZ(2);
+        base20.translateX(7);
+        
+        base21.translateZ(-13);
+        base21.translateX(-3);
+        
+        base22.translateZ(-3);
+        base22.translateX(-12);
+        
+        base23.translateZ(-13);
+        base23.translateX(6);
+        
+        base24.translateZ(-4);
+        base24.translateX(13);
+		
+		 base25.translateZ(28);
+        base25.translateX(-28);
+		
+		 base26.translateZ(23);
+        base26.translateX(-24);
+		
+		 base27.translateZ(26);
+        base27.translateX(24);
+		
+		 base28.translateZ(-22);
+        base28.translateX(-22);
+		
+		 base29.translateZ(-29);
+        base29.translateX(-23);
+		
+		 base30.translateZ(-21);
+        base30.translateX(27);
+		
+		 base31.translateZ(-26);
+        base31.translateX(23);
+		
+		 base32.translateZ(20);
+        base32.translateX(0);
+		
+		 base33.translateZ(21);
+        base33.translateX(-27);
+		
+		 base34.translateZ(28);
+        base34.translateX(-23);
+		
+		 base35.translateZ(22);
+        base35.translateX(21);
+		
+		 base36.translateZ(26);
+        base36.translateX(30);
+		
+		 base37.translateZ(-25);
+        base37.translateX(-27);
+		
+		 base38.translateZ(-28);
+        base38.translateX(-21);
+		
+		 base39.translateZ(-21);
+        base39.translateX(21);
+		
+		 base40.translateZ(-30);
+        base40.translateX(23);
+		
+		base41.translateZ(25);
+        base41.translateX(-27);
+		
+		base42.translateZ(20);
+        base42.translateX(-23);
+		
+		base43.translateZ(30);
+        base43.translateX(23);
+		
+		base44.translateZ(23);
+        base44.translateX(25);
+		
+		base45.translateZ(-25);
+        base45.translateX(-22);
+		
+		base46.translateZ(-30);
+        base46.translateX(-30);
+		
+		base47.translateZ(-25);
+        base47.translateX(28);
+		
+		base48.translateZ(-29);
+        base48.translateX(27);
+		
+		base49.translateZ(25);
+        base49.translateX(-21);
+		
+		base50.translateZ(23);
+        base50.translateX(-30);
+		
+		base51.translateZ(27);
+        base51.translateX(21);
+		
+		base52.translateZ(30);
+        base52.translateX(30);
+		
+		base53.translateZ(-28);
+        base53.translateX(-27);
+		
+		base54.translateZ(-25);
+        base54.translateX(-22);
+		
+		base55.translateZ(-23);
+        base55.translateX(25);
+		
+		base56.translateZ(-30);
+        base56.translateX(30);
+		
+		base57.translateZ(30);
+        base57.translateX(-20);
+		
+		base58.translateZ(23);
+        base58.translateX(-20);
+		
+		base59.translateZ(24);
+        base59.translateX(20);
+		
+		base60.translateZ(30);
+        base60.translateX(20);
+		
+		base61.translateZ(-24);
+        base61.translateX(-20);
+		
+		base62.translateZ(-30);
+        base62.translateX(-20);
+		
+		base63.translateZ(-28);
+        base63.translateX(20);
+		
+		base64.translateZ(-24);
+        base64.translateX(20);
+		
+		base65.translateZ(34);
+        base65.translateX(0);
+		
+		base66.translateZ(26);
+        base66.translateX(0);
+		
+		base67.translateZ(0);
+        base67.translateX(22);
+		
+		base68.translateZ(0);
+        base68.translateX(26);
+		
+		base69.translateZ(-34);
+        base69.translateX(0);
+		
+		base70.translateZ(-26);
+        base70.translateX(0);
+		
+		base71.translateZ(0);
+        base71.translateX(-30);
+		
+		base72.translateZ(0);
+        base72.translateX(-26);
+        
+        base1.translateZ(-6);
+        base1.translateX(-7);
+        
+         base2.translateZ(0);
+        base2.translateX(6);
+        
+         base3.translateZ(9);
+        base3.translateX(0);
+        
+         base4.translateZ(8);
+        base4.translateX(11);
+        
+         base5.translateZ(15);
+        base5.translateX(8);
+        
+        base6.translateZ(13);
+        base6.translateX(-14);
+        
+         base7.translateZ(4);
+        base7.translateX(-10);
+        
+         base8.translateZ(15);
+        base8.translateX(-5);
+        
+        base9.translateZ(-15);
+        base9.translateX(-15);
+        
+        base10.translateZ(15);
+        base10.translateX(15);
+        
+        base11.translateZ(0);
+        base11.translateX(-7);
+        
+         base12.translateZ(-8);
+        base12.translateX(0);
+        
+         base13.translateZ(-15);
+        base13.translateX(15);
+        
+        base14.translateZ(-6);
+        base14.translateX(6);
+        
+        base15.translateZ(-1);
+        base15.translateX(3);
+        
+           camera.lookAt( 0, 0, 0 );
+            var animate = function () {
+				requestAnimationFrame( animate );
+
+				
+				renderer.render( scene, camera );
+			};
+
+			animate();
+
+		
+		</script>
+	</body>
+</html>

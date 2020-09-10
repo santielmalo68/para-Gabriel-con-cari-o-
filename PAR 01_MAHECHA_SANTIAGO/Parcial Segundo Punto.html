@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PARCIAL SEGUNDO PUNTO  </title>
+    <style>
+      html, body { margin: 0; padding: 0; overflow: hidden; }
+        #info {
+                position: absolute;
+                padding: 10px;
+                width: 100%;
+                text-align: center;
+                color: #FFFFFF;
+            }
+    </style>
+  </head>
+  <body>
+      <div id="info">
+        
+         UN LINDO SISTEMA SOLAR PARA UN 
+				LINDO PROFESOR<br/>
+                        
+        </div>
+		<script src="js/three.js"></script>
+        <script src="js/controls/OrbitControls.js"></script>
+        <script src="js/csg.js"></script>
+	<script src="js/THREE.CSG.js"></script>
+    <script>
+            
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+            var controls;
+			var upArrow = false;
+			var startTime = Date.now();
+			var zAxis = false;
+		
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+			document.body.appendChild( renderer.domElement );
+            controls = new THREE.OrbitControls( camera, renderer.domElement );
+			camera.position.y = 30;
+			
+			//EVENTOS DE TECLADO
+			
+			var onKeyDown = function ( event ) {
+				switch ( event.keyCode ) {
+					case 38: // Y POSITIVE - UP ARROW
+						upArrow = true;
+						break;
+			
+					case 90: // SELECCIONAR EJE Z DE 
+						xAxis = false;
+						yAxis = false;
+						zAxis = true;
+						break;
+				}
+			};	  
+		  			
+			var onKeyUp = function ( event ) {
+				upArrow = false;
+			};	  	
+			
+			document.addEventListener( 'keydown', onKeyDown, false );
+			document.addEventListener( 'keyup', onKeyUp, false );
+			
+			
+			geoEsfera= new THREE.Geometry();
+			var matRec = new THREE.PointsMaterial( { color: 'white', size: 1 } );	
+            var zTemp = 0;
+            var resXY = 100.0;
+			var resZ = 100.0;
+            for( var i = 0; i < resZ; i++){
+                for( var j = 0; j < resXY; j++){
+                    var punto = new THREE.Vector3();
+                    punto.x = 300 * Math.cos( ( j * 2 * Math.PI )/resXY) * Math.sin( ( i * Math.PI )/ resZ) ;
+                    punto.y = 300 * Math.sin( ( j * 2 * Math.PI )/resXY) * Math.sin( ( i * Math.PI )/ resZ) ;
+                    punto.z = 300 * Math.cos( ( i * Math.PI )/resZ) ;
+                    geoEsfera.vertices.push( punto );
+                }
+            }
+			
+		 cosmos = new THREE.Points( geoEsfera, matRec );
+		 
+		 geoEsfera1= new THREE.Geometry();
+			var matRec1 = new THREE.PointsMaterial( { color: 'orange', size: 0.5 } );	
+            var zTemp = 0;
+            var resXY = 500.0;
+			var resZ = 500.0;
+            for( var i = 0; i < resZ; i++){
+                for( var j = 0; j < resXY; j++){
+                    var punto = new THREE.Vector3();
+                    punto.x = 20 * Math.cos( ( j * 2 * Math.PI )/resXY) * Math.sin( ( i * Math.PI )/ resZ) ;
+                    punto.y = 20 * Math.sin( ( j * 2 * Math.PI )/resXY) * Math.sin( ( i * Math.PI )/ resZ) ;
+                    punto.z = 20 * Math.cos( ( i * Math.PI )/resZ) ;
+                    geoEsfera1.vertices.push( punto );
+                }
+            }
+			
+		 sol = new THREE.Points( geoEsfera1, matRec1 );
+		 
+		  geoEsfera2= new THREE.Geometry();
+			var matRec2 = new THREE.PointsMaterial( { color: 'yellow', size: 0.5 } );	
+            var zTemp = 0;
+            var resXY = 500.0;
+			var resZ = 500.0;
+            for( var i = 0; i < resZ; i++){
+                for( var j = 0; j < resXY; j++){
+                    var punto = new THREE.Vector3();
+                    punto.x = 2 * Math.cos( ( j * 2 * Math.PI )/resXY) * Math.sin( ( i * Math.PI )/ resZ) ;
+                    punto.y = 2 * Math.sin( ( j * 2 * Math.PI )/resXY) * Math.sin( ( i * Math.PI )/ resZ) ;
+                    punto.z = 2 * Math.cos( ( i * Math.PI )/resZ) ;
+                    geoEsfera2.vertices.push( punto );
+                }
+            }
+			
+		 mercurio = new THREE.Points( geoEsfera2, matRec2 );
+		 
+		 geoEsfera3= new THREE.Geometry();
+			var matRec3 = new THREE.PointsMaterial( { color: 'brown', size: 0.5 } );	
+            var zTemp = 0;
+            var resXY = 500.0;
+			var resZ = 500.0;
+            for( var i = 0; i < resZ; i++){
+                for( var j = 0; j < resXY; j++){
+                    var punto = new THREE.Vector3();
+                    punto.x = 3 * Math.cos( ( j * 2 * Math.PI )/resXY) * Math.sin( ( i * Math.PI )/ resZ) ;
+                    punto.y = 3 * Math.sin( ( j * 2 * Math.PI )/resXY) * Math.sin( ( i * Math.PI )/ resZ) ;
+                    punto.z = 3 * Math.cos( ( i * Math.PI )/resZ) ;
+                    geoEsfera3.vertices.push( punto );
+                }
+            }
+			
+		 venus = new THREE.Points( geoEsfera3, matRec3 );
+		 
+		 geoEsfera4= new THREE.Geometry();
+			var matRec4 = new THREE.PointsMaterial( { color: 'green', size: 0.5 } );	
+            var zTemp = 0;
+            var resXY = 500.0;
+			var resZ = 500.0;
+            for( var i = 0; i < resZ; i++){
+                for( var j = 0; j < resXY; j++){
+                    var punto = new THREE.Vector3();
+                    punto.x = 4 * Math.cos( ( j * 2 * Math.PI )/resXY) * Math.sin( ( i * Math.PI )/ resZ) ;
+                    punto.y = 4 * Math.sin( ( j * 2 * Math.PI )/resXY) * Math.sin( ( i * Math.PI )/ resZ) ;
+                    punto.z = 4 * Math.cos( ( i * Math.PI )/resZ) ;
+                    geoEsfera4.vertices.push( punto );
+                }
+            }
+			
+		 tierra = new THREE.Points( geoEsfera4, matRec4 );
+		 
+		 geoEsfera5= new THREE.Geometry();
+			var matRec5 = new THREE.PointsMaterial( { color: 'red', size: 0.5 } );	
+            var zTemp = 0;
+            var resXY = 500.0;
+			var resZ = 500.0;
+            for( var i = 0; i < resZ; i++){
+                for( var j = 0; j < resXY; j++){
+                    var punto = new THREE.Vector3();
+                    punto.x = 5 * Math.cos( ( j * 2 * Math.PI )/resXY) * Math.sin( ( i * Math.PI )/ resZ) ;
+                    punto.y = 5 * Math.sin( ( j * 2 * Math.PI )/resXY) * Math.sin( ( i * Math.PI )/ resZ) ;
+                    punto.z = 5 * Math.cos( ( i * Math.PI )/resZ) ;
+                    geoEsfera5.vertices.push( punto );
+                }
+            }
+			
+		 marte = new THREE.Points( geoEsfera5, matRec5 );
+		 
+		 geoEsfera6= new THREE.Geometry();
+			var matRec6 = new THREE.PointsMaterial( { color: 'purple', size: 0.5 } );	
+            var zTemp = 0;
+            var resXY = 500.0;
+			var resZ = 500.0;
+            for( var i = 0; i < resZ; i++){
+                for( var j = 0; j < resXY; j++){
+                    var punto = new THREE.Vector3();
+                    punto.x = 12 * Math.cos( ( j * 2 * Math.PI )/resXY) * Math.sin( ( i * Math.PI )/ resZ) ;
+                    punto.y = 12 * Math.sin( ( j * 2 * Math.PI )/resXY) * Math.sin( ( i * Math.PI )/ resZ) ;
+                    punto.z = 12 * Math.cos( ( i * Math.PI )/resZ) ;
+                    geoEsfera6.vertices.push( punto );
+                }
+            }
+			
+		 jupiter = new THREE.Points( geoEsfera6, matRec6 );
+		 
+		 geoEsfera7= new THREE.Geometry();
+			var matRec7 = new THREE.PointsMaterial( { color: 'pink', size: 0.5 } );	
+            var zTemp = 0;
+            var resXY = 500.0;
+			var resZ = 500.0;
+            for( var i = 0; i < resZ; i++){
+                for( var j = 0; j < resXY; j++){
+                    var punto = new THREE.Vector3();
+                    punto.x = 7 * Math.cos( ( j * 2 * Math.PI )/resXY) * Math.sin( ( i * Math.PI )/ resZ) ;
+                    punto.y = 7 * Math.sin( ( j * 2 * Math.PI )/resXY) * Math.sin( ( i * Math.PI )/ resZ) ;
+                    punto.z = 7 * Math.cos( ( i * Math.PI )/resZ) ;
+                    geoEsfera7.vertices.push( punto );
+                }
+            }
+			
+		 saturno = new THREE.Points( geoEsfera7, matRec7 );
+		 
+		 geoEsfera8= new THREE.Geometry();
+			var matRec8 = new THREE.PointsMaterial( { color: 'grey', size: 0.5 } );	
+            var zTemp = 0;
+            var resXY = 500.0;
+			var resZ = 500.0;
+            for( var i = 0; i < resZ; i++){
+                for( var j = 0; j < resXY; j++){
+                    var punto = new THREE.Vector3();
+                    punto.x = 5 * Math.cos( ( j * 2 * Math.PI )/resXY) * Math.sin( ( i * Math.PI )/ resZ) ;
+                    punto.y = 5 * Math.sin( ( j * 2 * Math.PI )/resXY) * Math.sin( ( i * Math.PI )/ resZ) ;
+                    punto.z = 5 * Math.cos( ( i * Math.PI )/resZ) ;
+                    geoEsfera8.vertices.push( punto );
+                }
+            }
+			
+		 urano = new THREE.Points( geoEsfera8, matRec8 );
+		 
+		 geoEsfera9= new THREE.Geometry();
+			var matRec9 = new THREE.PointsMaterial( { color: 'blue', size: 0.5 } );	
+            var zTemp = 0;
+            var resXY = 500.0;
+			var resZ = 500.0;
+            for( var i = 0; i < resZ; i++){
+                for( var j = 0; j < resXY; j++){
+                    var punto = new THREE.Vector3();
+                    punto.x = 3 * Math.cos( ( j * 2 * Math.PI )/resXY) * Math.sin( ( i * Math.PI )/ resZ) ;
+                    punto.y = 3 * Math.sin( ( j * 2 * Math.PI )/resXY) * Math.sin( ( i * Math.PI )/ resZ) ;
+                    punto.z = 3* Math.cos( ( i * Math.PI )/resZ) ;
+                    geoEsfera9.vertices.push( punto );
+                }
+            }
+			
+		 neptuno = new THREE.Points( geoEsfera9, matRec9 );
+		 
+		 geoEsfera10= new THREE.Geometry();
+			var matRec10 = new THREE.PointsMaterial( { color: 'white', size: 0.5 } );	
+            var zTemp = 0;
+            var resXY = 500.0;
+			var resZ = 500.0;
+            for( var i = 0; i < resZ; i++){
+                for( var j = 0; j < resXY; j++){
+                    var punto = new THREE.Vector3();
+                    punto.x = 2 * Math.cos( ( j * 2 * Math.PI )/resXY) * Math.sin( ( i * Math.PI )/ resZ) ;
+                    punto.y = 2 * Math.sin( ( j * 2 * Math.PI )/resXY) * Math.sin( ( i * Math.PI )/ resZ) ;
+                    punto.z = 2* Math.cos( ( i * Math.PI )/resZ) ;
+                    geoEsfera10.vertices.push( punto );
+                }
+            }
+			
+		 pluton = new THREE.Points( geoEsfera10, matRec10 );
+		 
+        scene.add(cosmos, sol, mercurio, venus, tierra, marte, jupiter, saturno, urano, neptuno, pluton);
+		
+			camera.position.x = 0;
+			camera.position.y = 50;	 
+		  	camera.position.z = 200;			
+		  	camera.lookAt( origin );
+			
+		
+		mercurio.translateZ (0);
+		venus.translateZ (60);
+		tierra.translateZ (90);
+		marte.translateZ (120);
+		jupiter.translateZ (150);
+		saturno.translateZ (180);
+		urano.translateZ (210);
+		neptuno.translateZ (240);
+		pluton.translateZ (270);
+
+           camera.lookAt( 0, 0, 0 );
+		   
+        function animate() {
+        render();
+        requestAnimationFrame( animate );
+		
+				cosmos.rotation.z += 0.01;
+				
+    }
+				
+		function render(){
+		
+		var dtime = Date.now()-startTime;
+		
+        mercurio.position.x = 40*Math.cos(dtime/2000);
+		mercurio.position.z = 40*Math.sin(dtime/2000);
+		
+		
+		venus.position.x = 60*Math.cos(dtime/3000);
+		venus.position.z = 60*Math.sin(dtime/3000);
+		
+		
+		tierra.position.x = 80*Math.cos(dtime/4000);
+		tierra.position.z = 80*Math.sin(dtime/4000);
+		
+		
+		marte.position.x = 100*Math.cos(dtime/5000);
+		 marte.position.z = 100*Math.sin(dtime/5000);
+		
+		
+		 jupiter.position.x = 120*Math.cos(dtime/6000);
+		 jupiter.position.z = 120*Math.sin(dtime/6000);
+		
+		
+		 saturno.position.x = 140*Math.cos(dtime/7000);
+		 saturno.position.z = 140*Math.sin(dtime/7000);
+		
+		
+		 urano.position.x = 160*Math.cos(dtime/8000);
+		  urano.position.z = 160*Math.sin(dtime/8000);
+		
+		
+		 neptuno.position.x = 180*Math.cos(dtime/9000);
+		 neptuno.position.z = 180*Math.sin(dtime/9000);
+		
+		
+		 pluton.position.x = 200*Math.cos(dtime/10000);
+		  pluton.position.z = 200*Math.sin(dtime/10000);
+		  
+		 
+	
+		
+		
+				renderer.render( scene, camera );
+				
+			};
+
+			animate();
+
+		
+		</script>
+	</body>
+</html>
+	

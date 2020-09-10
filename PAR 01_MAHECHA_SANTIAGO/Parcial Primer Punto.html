@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PARCIAL PRIMER PUNTO  </title>
+    <style>
+      html, body { margin: 0; padding: 0; overflow: hidden; }
+        #info {
+                position: absolute;
+                padding: 10px;
+                width: 100%;
+                text-align: center;
+                color: #FFFFFF;
+            }
+    </style>
+  </head>
+  <body>
+      <div id="info">
+        
+            Santiago Mahecha <br/>
+                        
+        </div>
+		<script src="js/three.js"></script>
+        <script src="js/controls/OrbitControls.js"></script>
+        <script src="js/csg.js"></script>
+	<script src="js/THREE.CSG.js"></script>
+    <script>
+            
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+            var controls;
+           
+
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+			document.body.appendChild( renderer.domElement );
+            controls = new THREE.OrbitControls( camera, renderer.domElement );
+			camera.position.y = 30;
+
+            Cubo= new THREE.Geometry();
+	       var resCub=10;
+            var matRec = new THREE.PointsMaterial( { color: 'white', size: 0.1 } );	
+			var matRec1 = new THREE.PointsMaterial( { color: 'red', size: 0.1 } );	
+            for( var i = 0; i < resCub; i++){
+				for( var k = 0; k < resCub; k++){
+                   var punto1 = new THREE.Vector3();
+                   punto1.x =  (i/1);
+                   punto1.z = k/1;
+                    Cubo.vertices.push( punto1 );
+                    
+					}
+				}
+        base = new THREE.Points(Cubo, matRec);
+		base1 = new THREE.Points(Cubo, matRec1);  //CLON DEL CUBO 
+		
+		base1.rotateY(2);
+		base1.translateZ(8);
+		base1.scale.x=0.2;
+		
+        scene.add(base, base1);
+        
+           camera.lookAt( 0, 0, 0 );
+            var animate = function () {
+				requestAnimationFrame( animate );
+
+				
+				renderer.render( scene, camera );
+			};
+
+			animate();
+
+		
+		</script>
+	</body>
+</html>
